@@ -7,8 +7,8 @@
 </head>
 <body>
     <form method="POST" action="/library-ms/public/users">
-        <input type="text" name="name" id="" placeholder="Enter your name">
-        <input type="email" name="email" id="" placeholder="Enter your email">
+        <input type="text" name="name" id="" placeholder="Enter your name"><br>
+        <input type="email" name="email" id="" placeholder="Enter your email"><br>
         <input type="submit" value="Send">
     </form>
 </body>

@@ -10,13 +10,13 @@ class UserController
     function index()
     {
         $user = new User();
-
-        $users = $user->all();
-
+        if (isset($_GET['search']) && $_GET['search'] !== '') {
+            $users = $user->search($_GET['search']);
+        } else {
+            $users = $user->all();
+        }
         require '../app/views/users/index.php';
     }
-
-    function show() {}
 
     function create()
     {
@@ -26,30 +26,48 @@ class UserController
     function store()
     {
         $user = new User();
-
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
         $user->create(
-            $_POST['name'],
-            $_POST['email'],
+            $name,
+            $email
         );
-
         $this->index();
     }
 
-    function edit($id)
+    function edit()
     {
-        $user = new User();
-        $user = $user->find($id);
-        require __DIR__ . './../views/users/edit.php';
+        $id = $_GET['id'] ?? null;
+        $userModel = new User();
+        $user = null;
+        if ($id) {
+            $user = $userModel->find($id);
+        }
+        require __DIR__ . '/../views/users/edit.php';
     }
 
-    function update($id)
+    function update()
     {
+        $id = $_POST['id'] ?? null;
+        $name = $_POST['name'] ?? '';
+        $email = $_POST['email'] ?? '';
         $user = new User();
+        if ($id) {
+            $user->update($id, $name, $email);
+            header('Location: /library-ms/public/users');
+            exit;
+        }
+    }
 
-        $user->update(
-            $id,
-            $_POST['name'],
-            $_POST['email']
-        );
+    function delete()
+    {
+        $id = $_POST['id'] ?? null;
+
+        if ($id) {
+            $user = new User();
+            $user->delete($id);
+        }
+        header('Location: /library-ms/public/users');
+        exit;
     }
 }

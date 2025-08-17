@@ -6,6 +6,12 @@ use App\Core\App;
 
 class User
 {
+    function search($query)
+    {
+        $stm = App::db()->prepare("SELECT * FROM users WHERE name LIKE :q OR email LIKE :q");
+        $stm->execute(['q' => "%$query%"]);
+        return $stm->fetchAll();
+    }
 
     function all()
     {
@@ -20,7 +26,7 @@ class User
     {
         $stm = App::db()->prepare("SELECT * FROM users WHERE id=:id");
         $stm->execute(['id' => $id]);
-        $stm->fetchAll();
+        return $stm->fetch();
     }
 
     function create($name, $email)

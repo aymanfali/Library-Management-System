@@ -6,16 +6,7 @@ use App\Models\Book;
 
 class BookController
 {
-    function delete()
-    {
-        $id = $_POST['id'] ?? null;
-        if ($id) {
-            $book = new Book();
-            $book->delete($id);
-        }
-        header('Location: /library-ms/public/books');
-        exit;
-    }
+    
 
     function index()
     {
@@ -28,8 +19,6 @@ class BookController
         require '../app/views/books/index.php';
     }
 
-    function show() {}
-
     function create()
     {
         require '../app/views/books/create.php';
@@ -37,11 +26,11 @@ class BookController
 
     function store()
     {
-    $book = new Book();
-    $title = $_POST['title'] ?? '';
-    $author = $_POST['author'] ?? '';
-    $book->create($title, $author);
-    $this->index();
+        $book = new Book();
+        $title = $_POST['title'] ?? '';
+        $author = $_POST['author'] ?? '';
+        $book->create($title, $author);
+        $this->index();
     }
 
     function edit()
@@ -66,5 +55,16 @@ class BookController
             header('Location: /library-ms/public/books');
             exit;
         }
+    }
+
+    function delete()
+    {
+        $id = $_POST['id'] ?? null;
+        if ($id) {
+            $book = new Book();
+            $book->delete($id);
+        }
+        header('Location: /library-ms/public/books');
+        exit;
     }
 }
