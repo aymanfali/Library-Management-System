@@ -13,7 +13,7 @@ final class Router
     {
 
         $path = $this->norm(parse_url($uri, PHP_URL_PATH) ?: '/');
-
+        
         $handler = $this->routes[$method][$path] ?? null;
 
         if (!$handler) {

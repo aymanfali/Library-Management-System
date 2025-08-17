@@ -22,7 +22,8 @@
                 <tr>
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['email']; ?></td>
-                    <td><a href="/library-ms/public/users/<?php echo $user['id']; ?>/edit">Edit</a></td>
+                    <td><a href="/library-ms/public/users/edit?id=<?php echo $user['id']; ?>">Edit</a></td>
+                    <td><a href="/library-ms/public/users/edit?id=<?php echo $user['id']; ?>">Edit</a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

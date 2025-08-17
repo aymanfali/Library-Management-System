@@ -17,5 +17,6 @@ $router->post('/library-ms/public/users', [UserController::class, 'store']);
 $router->get('/library-ms/public/books',[BookController::class,'index']);
 $router->get('/library-ms/public/books/create',[BookController::class,'create']);
 $router->post('/library-ms/public/books',[BookController::class,'store']);
-$router->get('/library-ms/public/books/1/edit',[BookController::class,'edit']);
-$router->post('/library-ms/public/books/{id}/update',[BookController::class,'update']);
+$router->get('/library-ms/public/books/edit',[BookController::class,'edit']);
+$router->post('/library-ms/public/books/update',[BookController::class,'update']);
+$router->post('/library-ms/public/books/delete', [BookController::class, 'delete']);
