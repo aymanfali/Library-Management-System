@@ -7,7 +7,8 @@
 </head>
 <body>
     <form method="POST" action="/library-ms/public/books">
-        <input type="text" name="title" id="" placeholder="Enter your Title">
+        <input type="text" name="title" id="" placeholder="Enter your Title"><br>
+        <input type="text" name="author" id="" placeholder="Enter author name"><br>
         <input type="submit" value="Send">
     </form>
 </body>
