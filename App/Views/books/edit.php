@@ -8,8 +8,9 @@
 </head>
 
 <body>
-    <form method="POST" action="/library-ms/public/books/update/<?php echo $book['id']; ?>">
-        <input type="text" name="title" id="" placeholder="Enter your Title" value="<?php echo htmlspecialchars($book['title']); ?>">
+    <form method="POST" action="/library-ms/public/books/update">
+        <input type="hidden" name="id" value="<?= isset($book['id']) ? htmlspecialchars($book['id']) : '' ?>">
+        <input type="text" name="title" placeholder="Enter your Title" value="<?= isset($book['title']) ? htmlspecialchars($book['title']) : '' ?>">
         <input type="submit" value="Send">
     </form>
 </body>
