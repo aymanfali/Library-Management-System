@@ -26,7 +26,6 @@
                 </tr>
             <?php endforeach; ?>
         </tbody>
-
     </table>
 </body>
 
