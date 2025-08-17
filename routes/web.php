@@ -13,6 +13,9 @@ $router->get('/library-ms/public/home',[HomeController::class,'index']);
 $router->get('/library-ms/public/users', [UserController::class, 'index']);
 $router->get('/library-ms/public/users/create', [UserController::class, 'create']);
 $router->post('/library-ms/public/users', [UserController::class, 'store']);
+$router->get('/library-ms/public/users/edit', [UserController::class, 'edit']);
+$router->post('/library-ms/public/users/update', [UserController::class, 'update']);
+$router->post('/library-ms/public/users/delete', [UserController::class, 'delete']);
 
 $router->get('/library-ms/public/books',[BookController::class,'index']);
 $router->get('/library-ms/public/books/create',[BookController::class,'create']);
