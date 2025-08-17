@@ -10,14 +10,21 @@
 <body>
     <p>Here is your books:</p>
     <a href='/library-ms/public/books/create'>Create</a>
-    <ul>
-        <?php
-        foreach ($books as $book) {
-            echo "<li>" . $book['title'] . " - - - " . "<a href='/library-ms/public/books/" . $book['id'] . "/edit'>Edit</a>" . "</li>";
-        }
-        ?>
-
-    </ul>
+      <table>
+        <thead>
+            <th>id</th>
+            <th>title</th>
+            <th>actions</th>
+        </thead>
+        <tbody>
+            <?php foreach ($books as $book): ?>
+                <tr>
+                    <td><?php echo $book['title']; ?></td>
+                    <td><a href="/library-ms/public/books/<?php echo $book['id']; ?>/edit">Edit</a></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
 </body>
 
 </html>
