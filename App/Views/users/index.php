@@ -19,6 +19,7 @@
             <th>id</th>
             <th>name</th>
             <th>email</th>
+            <th>No. borrowed</th>
             <th>actions</th>
         </thead>
         <tbody>
@@ -27,7 +28,8 @@
                     <td><?php echo $user['id']; ?></td>
                     <td><?php echo $user['name']; ?></td>
                     <td><?php echo $user['email']; ?></td>
-                    <td><a href="/library-ms/public/users/edit?id=<?php echo $user['id']; ?>">Edit</a></td>
+                    <td><?php echo $user['borrowed_books']; ?></td>
+                    
                     <td>
                         <form method="POST" action="/library-ms/public/users/delete" style="display:inline;">
                             <input type="hidden" name="id" value="<?= htmlspecialchars($user['id']) ?>">

@@ -21,16 +21,16 @@ class Book
         return $stm->fetchAll();
     }
 
-    function create($title, $author)
+    function create($title, $author, $copies)
     {
-        $stm = App::db()->prepare("INSERT INTO books(title, author) VALUES (:title, :author)");
-        $stm->execute(['title' => $title, 'author' => $author]);
+        $stm = App::db()->prepare("INSERT INTO books(title, author, copies) VALUES (:title, :author, :copies)");
+        $stm->execute(['title' => $title, 'author' => $author, 'copies' => $copies]);
     }
 
-    function update($id, $title, $author)
+    function update($id, $title, $author, $copies)
     {
-        $stm = App::db()->prepare("UPDATE books SET title=:title, author=:author WHERE id = :id");
-        $stm->execute(['id' => $id, 'title' => $title, 'author' => $author]);
+        $stm = App::db()->prepare("UPDATE books SET title=:title, author=:author copies=:copies WHERE id = :id");
+        $stm->execute(['id' => $id, 'title' => $title, 'author' => $author, 'copies' => $copies]);
     }
 
     function find($id)
