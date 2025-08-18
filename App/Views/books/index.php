@@ -19,6 +19,7 @@
             <th>id</th>
             <th>title</th>
             <th>author</th>
+            <th>copies</th>
             <th>actions</th>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
                     <td><?php echo $book['id']; ?></td>
                     <td><?php echo $book['title']; ?></td>
                     <td><?php echo $book['author']; ?></td>
+                    <td><?php echo $book['copies']; ?></td>
                     <td><a href="/library-ms/public/books/edit?id=<?php echo $book['id']; ?>">Edit</a></td>
                     <td>
                         <form method="POST" action="/library-ms/public/books/delete" style="display:inline;">

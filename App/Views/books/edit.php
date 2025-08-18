@@ -12,6 +12,7 @@
         <input type="hidden" name="id" value="<?= isset($book['id']) ? htmlspecialchars($book['id']) : '' ?>">
         <input type="text" name="title" placeholder="Enter your Title" value="<?= isset($book['title']) ? htmlspecialchars($book['title']) : '' ?>"><br>
         <input type="text" name="author" placeholder="Enter author name" value="<?= isset($book['author']) ? htmlspecialchars($book['author']) : '' ?>"><br>
+        <input type="text" name="copies" placeholder="Enter number of copies" value="<?= isset($book['copies']) ? htmlspecialchars($book['copies']) : '' ?>"><br>
         <input type="submit" value="Send">
     </form>
 </body>

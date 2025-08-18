@@ -29,7 +29,8 @@ class BookController
         $book = new Book();
         $title = $_POST['title'] ?? '';
         $author = $_POST['author'] ?? '';
-        $book->create($title, $author);
+        $copies = $_POST['copies'] ?? '';
+        $book->create($title, $author, $copies);
         $this->index();
     }
 
@@ -49,9 +50,10 @@ class BookController
         $id = $_POST['id'] ?? null;
         $title = $_POST['title'] ?? '';
         $author = $_POST['author'] ?? '';
+        $copies = $_POST['copies'] ??'';
         $book = new Book();
         if ($id) {
-            $book->update($id, $title, $author);
+            $book->update($id, $title, $author, $copies);
             header('Location: /library-ms/public/books');
             exit;
         }

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Borrow;
 use App\Models\User;
 
 class UserController
@@ -69,5 +70,21 @@ class UserController
         }
         header('Location: /library-ms/public/users');
         exit;
+    }
+
+    public function borrow()
+    {
+        $userId = $_POST['user_id'] ?? null;
+        $bookId = $_POST['book_id'] ?? null;
+        
+        if ($userId && $bookId) {
+            $success = Borrow::borrowBook($userId, $bookId);
+            if ($success) {
+                header('Location: /library-ms/public/users');
+                exit;
+            } else {
+                echo "Borrow failed. Please try again.";
+            }
+        }
     }
 }
